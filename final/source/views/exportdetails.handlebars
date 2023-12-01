@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Chi Tiết Xuất Kho</h4>
+                        <h6>Chi tiết Xuất kho</h6>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="productdetails">
+
+                            <ul class="product-bar">
+                                <li>
+                                    <h4>Mã phiếu Xuất</h4>
+                                    <h6>{{export.Export_ID}}</h6>
+                                </li>
+                                <li>
+                                    <h4>Ngày Xuất kho</h4>
+                                    <h6>{{formatDateTime export.Date}}</h6>
+                                </li>
+                                <li>
+                                    <h4>Người Xuất Kho</h4>
+                                    <h6>{{export.EmployeeName}}</h6>
+                                </li>
+                              
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="card">
+                            <table class="datatable-init table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="tb-col">STT</th>
+                                        <th class="tb-col">Mã hàng</th>
+                                        <th class="tb-col">Tên hàng</th>
+                                        <th class="tb-col">Số lượng</th>
+                                        <th class="tb-col">Vị trí Xuất hàng</th>
+                                    </tr>
+                                </thead>
+    
+                                <tbody>
+                                    {{#each exportDetail}}
+                                    <tr>
+                                        <td>{{add @index 1}}</td>
+                                        <td>{{this.Product_ID}}</td>
+                                        <td class="productimgname">
+                                            <a href="javascript:void(0);" class="product-img">
+                                                <img src="{{this.Image}}" alt="product">
+                                            </a>
+                                            <a href="javascript:void(0);">{{this.ProductName}}</a>
+                                        </td>
+                                        <td>{{this.Quantity}}</td>
+                                        <td>{{this.InventoryName}}</td>
+                                    </tr>
+
+                                    {{/each }}
+                                   
+    
+                                </tbody>
+    
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>

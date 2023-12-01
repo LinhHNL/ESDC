@@ -1,0 +1,135 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Nhập Kho</h4>
+                        <h6>Nhập kho</h6>
+                    </div>
+                    <div class="page-btn">
+                        <a href="addproduct.html" class="btn btn-added"><img src="/public/img/icons/excel.svg" alt="img"
+                                class="me-1">Import</a>
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Mã phiếu nhập</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Ngày nhập kho</label>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Nhà cung cấp</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Mô tả</label>
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="card">
+                                        <table class="datatable-init table">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th class="tb-col">Mã hàng</th>
+                                                    <th class="tb-col">Tên hàng</th>
+                                                    <th class="tb-col">Số lượng</th>
+                                                    <th class="tb-col">Đơn vị</th>
+                                                    <th class="tb-col">Loại hàng</th>
+                                                    <th class="tb-col">Hành động</th>
+                                                </tr>
+                                            </thead>
+                    
+                                            <tbody>
+
+                                                <tr>
+                                                    <td class="tb-col">
+                                                        <div class="form-control-wrap"><input style="width:100%" type="text" class="form-control" required />
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="tb-col">
+                                                        <div class="form-control-wrap"><input style="width:100%" type="text" class="form-control" required />
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="tb-col">
+                                                        <div class="form-control-wrap"><input style="width:100%" type="number" min="1"
+                                                                max="1000000000" class="form-control" required />
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="tb-col">
+                                                        <div class="form-control-wrap"><input style="width:100%" type="text" class="form-control" required />
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="tb-col">
+                                                        <div class="form-control-wrap"><input style="width:100%" type="text" class="form-control" required />
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="tb-col">
+                                                        <button class="btn btn-danger btn-sm remove-item">Xóa</button>
+                                                    </td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <button type="button" class="btn btn-primary btn-sm" id="add-item">Thêm</button>
+                                                </tr>
+                    
+                                            </tbody>
+                    
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gap-col">
+                                <ul class="d-flex align-items-center">
+                                    <li><button type="submit" class="btn btn-primary">Lưu</button></li>
+                                    <li><a href="#" class="btn border m-lg-2">Thoát</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>

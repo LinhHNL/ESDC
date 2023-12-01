@@ -1,0 +1,65 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Danh Sách Loại Sản Phẩm</h4>
+                        <h6>Danh sách loại sản phẩm</h6>
+                    </div>
+                    <div class="page-btn">
+                        <a href="/categories/addcategory" class="btn btn-added">
+                            <img src="/img/icons/plus.svg" class="me-1" alt="img">thêm loại sản phẩm
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <table class="datatable-init table">
+                        <thead class="table-light">
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Loại Sản Phẩm</th>
+                                <th>Tên loại sản phẩm</th>
+                                <th>Số sản phẩm thuộc loại sản phẩm</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                                {{#each categories}}
+                            <tr>
+                                <td>{{ add @index 1 }}</td>
+
+                                <td>{{this.Category_ID}}</td>
+                                <td>{{this.CategoryName}}</td>
+                                <td>{{this.ProductCount}}</td>
+                                <td>{{this.Description}}</td>
+                               
+                                {{!-- <td><span class="badges bg-lightgreen">Còn hàng</span></td> --}}
+                                <td>
+                                    <a class="me-3" href="/categories/editcategory/{{this.Category_ID}}">
+                                        <img src="/img/icons/edit.svg" alt="img">
+                                    </a>
+                                    <a class="me-3 confirm-text" href="javascript:void(0);">
+                                        <img src="/img/icons/delete.svg" alt="img">
+                                    </a>
+                                </td>
+                            </tr>
+                                {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>

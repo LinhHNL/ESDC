@@ -1,0 +1,82 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Danh Sách Nhập Kho</h4>
+                    </div>
+                 
+                </div>
+        <div class="d-flex justify-content-end align-content-end">
+                 <div class="form-group col-3">  
+               <form action="/import/search" method="get">
+                  <div class="input-group mb-3 ">
+        <input type="text" class="form-control " id="SearchProduct" name="search"  placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="btn-SearchProduct">Search</button>
+                </div>
+               </form>
+</div>
+        </div>
+                <div class="card">
+                    <table class="datatable-init table">
+
+                        <thead class="table-light">
+
+                            <tr>
+                                <th class="tb-col">STT</th>
+                                <th class="tb-col">Mã phiếu</th>
+                                <th class="tb-col">Người nhập</th>
+                                <th class="tb-col">Ngày nhập</th>
+                                <th class="tb-col">Hành động</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            {{#each imports}}
+                            <tr>
+                                <td>{{add @index 1}}</td>
+                                <td>{{this.Import_ID}}</td>
+                                <td>{{this.EmployeeName}}</td>
+                                <td>{{formatDateTime this.Date}}</td>
+                                <td>
+                                    <a class="me-3" href="/import/details/{{this.Import_ID}}">
+                                        <img src="/img/icons/eye.svg" alt="img">
+                                    </a>
+                                </td>
+                            </tr>
+                            {{/each }}
+
+             
+
+                        </tbody>
+
+                    </table>
+                </div>
+  <div class="d-flex justify-content-end align-content-end">
+       <nav aria-label="Page navigation example">
+                        <ul class="pagination" id="pagination">
+                            {{#if (gt page 1)}}
+                            <li class="page-item"><a class="page-link previous" href="/{{url}}page={{sub page 1}}">Previous</a></li>
+                           {{else}}
+                            <li class="page-item"><a class="page-link previous" href="#">Previous</a></li>
+                             {{/if}}
+                            {{#if (gt page 1)}}
+                                <li class="page-item"><a class="page-link"  href="/{{url}}page={{sub page 1}}">{{sub page 1}}</a></li>
+                            {{/if}}
+                            <li class="page-item active"><a class="page-link" href="/{{url}}page={{page}}">{{page}}</a></li>
+                            <li class="page-item"><a class="page-link"href="/{{url}}page={{add page 1}}"> {{add page 1}}</a></li>
+                            <li class="page-item"><a class="page-link next" href="/{{url}}page={{add page 1}}">Next</a></li>
+                        </ul>
+                        </nav>
+  </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>

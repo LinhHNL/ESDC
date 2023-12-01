@@ -1,0 +1,69 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Danh Sách Người Dùng</h4>
+                        <h6>Danh sách người dùng</h6>
+                    </div>
+                    <div class="page-btn">
+                        <a href="/user/createUser" class="btn btn-added"><img src="/img/icons/plus.svg" alt="img">Thêm Người Dùng</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <table class="datatable-init table">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th class="tb-col">Mã Nhân Viên</th>
+                                <th class="tb-col">Tên Nhân Viên</th>
+                                <th class="tb-col">Ví trí</th>
+                                <th class="tb-col">Ngày Sinh</th>
+                                <th class="tb-col">Lương </th>
+                                <th class="tb-col">Email </th>
+                                <th class="tb-col">Trạng thái</th>
+                                <th class="tb-col">Hành động</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                          
+                             {{#each employees}}
+                            <tr>
+                               <td>{{this.Employee_ID}}</td>
+                                <td>{{this.Name}}</td>
+                                <td>{{this.PositionName}}</td>
+                                <td>{{formatDate this.BirthDay}}</td>
+                                <td>{{formatSalary this.Salary}}</td>
+                                <td>{{this.Email}}</td>
+                             
+                                <td>{{formatStatus this.Status}}</td>
+                                <td>
+                                    <a class="me-3" href="/user/editUser/{{this.Employee_ID}}">
+                                        <img src="/img/icons/edit.svg" alt="img" title="Edit User">
+                                    </a>
+                                  
+                                  <a class="me-3 reset-password" href="javascript:void(0);">
+                                        <img src="/img/icons/reset-svgrepo-com.svg" alt="img" title="Reset Password">
+                                    </a>   
+                                </td>
+                            </tr>
+                             {{/each}}
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>

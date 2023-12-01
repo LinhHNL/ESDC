@@ -1,0 +1,341 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Danh Sách Kho</h4>
+                        <h6>Danh Sách Kho</h6>
+                    </div>
+                    <div class="nk-block-head-content">
+                        <ul class="d-flex">
+                            <li>
+                                <a  class="btn btn-added" data-bs-toggle="modal" data-bs-target="#Import">Nhập kho</a>
+                            </li>
+                            <li style="margin-left: 10px">
+                                <a  class="btn btn-added" data-bs-toggle="modal" data-bs-target="#Export">Xuất kho</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Button trigger modal -->
+<!-- Modal Exports -->
+<div class="modal fade" id="Export" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exportLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exportLabel">Xuất Kho</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     <div class="row">
+           <div class="col-5">
+            <div class="form-group">
+                <label for="barcode">Nhập BarCode</label>
+                <input type="text" class="form-control" id="barcodeExport" placeholder="Enter BarCode">
+            </div>
+        </div>
+          <div class="col-5">
+            <div class="form-group">
+                <label for="Quantity">Số Lượng</label>
+                <input type="text" name="" id="QuantityExport">
+            </div>
+        </div>
+        <div class="col-2">
+            
+     <button type="button" class="btn btn-primary mt-4 btn-request-export" >Xác Nhận</button>
+
+            
+
+        </div>
+
+            <ul class="list-group" id="productResultsExport"></ul>
+
+     </div>
+     <div class="row">
+        <h5>Danh Sách Sản phẩm Xuất Kho</h5>
+        <table class="table ">
+            <thead>
+                <tr>
+                <th>Tên</th>
+                <th>BarCode</th>
+                <th>Số Lượng</th>
+                <th>Vi Trị</th>
+                <th>Ngày Nhập Kho</th>
+                </tr>
+            </thead>
+            <tbody class="tableinforwarehouseexport">
+                
+            </tbody>
+        </table>
+     </div>
+     <div class="row">
+            <div class="title-box-request-export" >
+                 </div>
+</div>
+          <div class="row col-12 ">
+              <div class="list-inve-avai-export d-flex mt-3 mb-3">
+                        {{!-- <div class="col-1">
+                            <a class="btn btn-outline-primary btn-warehouse-submit" id="1">
+                                                    A123
+                            </a>
+                </div> --}}
+            </div>
+            <div class=" second-inventory-export ">
+                
+                
+            </div>
+            <div class="">
+    <input type="hidden" class="btn btn-primary btn-add-export" placeholder="Add" value="Add">
+
+            </div>
+          </div>
+     
+          </div>
+      <div class="modal-footer d-flex justify-content-end">
+        <button type="button" class="btn btn-secondary btn-close-modal " data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-submit-save-export">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Import-->
+<div class="modal fade" id="Import" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="ImportLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ImportLabel">Nhập Kho</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     <div class="row">
+           <div class="col-5">
+            <div class="form-group">
+                <label for="barcode">Nhập BarCode</label>
+                <input type="text" class="form-control" id="barcode" placeholder="Enter BarCode">
+            </div>
+        </div>
+          <div class="col-5">
+            <div class="form-group">
+                <label for="Quantity">Số Lượng</label>
+                <input type="text" name="" id="Quantity">
+            </div>
+        </div>
+        <div class="col-2">
+            
+     <button type="button" class="btn btn-primary mt-4 btn-request-import" >Xác Nhận</button>
+
+            
+
+        </div>
+
+            <ul class="list-group" id="productResultsImport"></ul>
+
+     </div>
+     <div class="row">
+        <h5>Danh Sách Sản phẩm Nhập Kho</h5>
+        <table class="table .tableinforwarehouse">
+            <thead>
+                <tr>
+                    <th>Tên</th>
+                    <th>Số Lượng</th>
+                    <th>BarCode</th>
+                    <th>Vi Tri</th>
+                </tr>
+            </thead>
+            <tbody class="tableinforwarehouseimport">
+                
+            </tbody>
+        </table>
+     </div>
+     <div class="row">
+            <div class="title-box-request" >
+                 </div>
+</div>
+          <div class="row col-12 ">
+              <div class=" list-inve-avai d-flex mt-3 mb-3">
+                        {{!-- <div class="col-1">
+                            <a class="btn btn-outline-primary btn-warehouse-submit" id="1">
+                                                    A123
+                            </a>
+                </div> --}}
+            </div>
+            <div class=" second-inventory ">
+                
+                
+            </div>
+            <div class="">
+    <input type="hidden" class="btn btn-primary btn-add-import" placeholder="Add" value="Add">
+
+            </div>
+          </div>
+     
+          </div>
+      <div class="modal-footer d-flex justify-content-end">
+        <button type="button" class="btn btn-secondary btn-close-modal " data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-submit-save-import">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-8">
+
+                                <div class="row">
+                                    {{#each inventories}}
+                                    <div class="col-1">
+                                        <div class="form-group">
+                                            <a class="btn btn-outline-primary btn-warehouse" id="{{this.Inventory_ID}}">
+                                                {{this.Name}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{/each }}
+
+
+                                    <div class="col-lg-12">
+
+                                        <div class="page-header">
+                                            <div class="page-title">
+                                                <h4>Hàng Hóa Trong box</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="card">
+
+                                            <table class="datatable-init table">
+
+                                             
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            Tên Hàng
+                                                        </th>
+                                                        <th>
+                                                            Ngày Nhập Kho
+                                                        </th>
+                                                        <th>
+                                                            Người Nhập
+                                                        </th>
+                                                         <th>
+                                                            Hàng Còn Lại
+                                                        </th>
+                                                        <th>
+                                                            Số Lượng
+                                                            </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="box">
+{{!-- 
+                                                    <tr>
+                                                        <td><strong>Fruits</strong></td>
+                                                        <td class="me-2">03/11/2023</td>
+                                                        <td class="me-2">03/11/2023</td>
+                                                        <td class="pe-4">
+                                                            <div class="progress progress-sm">
+                                                                <div class="progress-bar bg-warning" role="progressbar"
+                                                                    style="width: 75%" aria-valuenow="75"
+                                                                    aria-valuemin="0" aria-valuemax="100">75%</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr> --}}
+
+                                               
+                                             
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+
+                                        
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="card">
+                                    
+                                    <div class="card-body">
+
+                                        <div class="page-header">
+                                            <div class="page-title">
+                                                <h4>Dung Lượng</h4>
+                                                <p>Dung tích kho đã được sử dụng: <span >{{StatusCapacity}}%</span></p>
+                                                <p>Số vật phẩm trong kho : <span >{{QuantityProduct}}</span></p>
+                                            </div>
+                                            
+
+                                        </div>
+
+                                        <div id="radial-chart" class="chart-set"></div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <div class="page-header">
+                                            <div class="page-title">
+                                                <h4>Hoạt động gần đây</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="activity">
+                                            <div class="activity-box">
+                                                <ul class="activity-list">
+                                                 {{#each liststatus}} 
+                                                    <li>
+                                                        <div class="activity-user">
+                                                            <a href="#" title="" data-toggle="tooltip"
+                                                                data-original-title="Lesley Grauer">
+                                                                <img alt="Lesley Grauer" src="/img/icons/product.svg"
+                                                                    class=" img-fluid">
+                                                            </a>
+                                                        </div>
+                                                        <div class="activity-content">
+                                                            <div class="timeline-content">
+                                                                <a href="#" class="noti-title">{{this.InventoryName}}</a>
+                                                                <p class="m-0">{{this.EmployeeName}} {{checktype this.type}}</p>
+                                                                <span class="time">{{formatDateTime Date }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {{/each}}
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+</body>

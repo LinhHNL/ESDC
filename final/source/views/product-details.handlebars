@@ -1,0 +1,136 @@
+<body>
+
+    <div class="page-wrapper">
+
+        <div class="content">
+
+            <div class="page-header">
+                <div class="page-title">
+                    <h4>Chi Tiết Sản Phẩm</h4>
+                    <h6>Chi tiết sản phẩm</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="productdetails">
+
+                                <ul class="product-bar">
+                                    <li>
+                                        <h4>Mã sản phẩm</h4>
+                                        <h6>{{product.Name}}</h6>
+                                    </li>
+                                    <li>
+                                        <h4>Tên sản phẩm</h4>
+                                        <h6>{{product.Name}}</h6>
+                                    </li>
+                                    <li>
+                                        <h4>Loại sản phẩm</h4>
+                                        <h6>{{product.Category_Name}}</h6>
+                                    </li>
+                                   
+                                    <li>
+                                        <h4>Mô tả</h4>
+                                        <h6>{{product.Description}}</h6>
+                                    </li>
+                                     <li>
+                                        <h4>Số lượng</h4>
+                                        <h6>{{product.Quantity}}</h6>
+                                    </li>
+                                     <li>
+                                        <h4>SKU</h4>
+                                        <h6>{{product.SKU}}</h6>
+                                    </li>
+                                     <li>
+                                        <h4>Barcode</h4>
+                                        <h6>{{product.Barcode}}</h6>
+                                    </li>
+                                     <li>
+                                        <h4>Giá Nhập</h4>
+                                        <h6>{{product.Cost_Price}}</h6>
+                                    </li>
+                                     <li>
+                                        <h4>Giá bán</h4>
+                                        <h6>{{product.Selling_Price}}</h6>
+                                    </li>
+                                     <li>
+                                        <h4>Chiều Dài</h4>
+                                        <h6>{{product.Length}} mm</h6>
+                                    </li>
+                                     <li>
+                                        <h4>Chiều Rộng</h4>
+                                        <h6>{{product.Width}} mm</h6>
+                                    </li>
+                                     <li>
+                                        <h4>Chiều Cao</h4>
+                                        <h6>{{product.Height}} mm</h6>
+                                    </li>
+                                    <li>
+                                        <h4>Cân Nặng</h4>
+                                        <h6>{{product.Height}} kg</h6>
+                                    </li>
+                                      <li>
+                                        <h4>Tình Trạng</h4>
+                                        <h6>{{ checkQuantity product.Quantity}} </h6>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+                        <h3>Hàng trong kho</h3>
+                    <div class="card">
+                        <table class="datatable-init table">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="tb-col">STT</th>
+                                    <th class="tb-col">Vị trí</th>
+                                    <th class="tb-col">Số Lượng</th>
+                                    <th class="tb-col">Ngày Nhập Hàng</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                               {{#each Inventorys}}
+                                <tr>
+                                    <td>{{add @index 1}}</td>
+                                    <td>{{this.InventoryName}}</td>
+                                    <td>{{this.Quantity}}</td>
+                                    <td>{{formatDateTime this.Date}}</td>
+                                    
+                                </tr>
+                               {{/each }}
+
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <img src="{{product.Image}}" alt="img">
+                            <h3 style="text-align: center;"><b>{{product.Name}}</b></h3>
+                            <h6 style="text-align: center;">{{formatSalary product.Cost_Price}}</h6>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>

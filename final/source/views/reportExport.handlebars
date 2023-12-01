@@ -1,0 +1,100 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Top Sản Phẩm Xuất Kho</h4>
+                    </div>
+                    
+                </div>
+            <form id="formdate" method="get" action="/report/topExport">
+      <div class="row mb-3 d-flex justify-content-end align-content-end">
+        <!-- Ngày -->
+        <div class="col-2">
+          <label for="dayInput" class="form-label">Ngày</label>
+          <input type="number" class="form-control" name="day" id="dayInput" placeholder="Nhập ngày" min="1" max="31">
+        </div>
+
+        <!-- Tháng -->
+        <div class="col-2">
+          <label for="monthInput" class="form-label">Tháng</label>
+          <input type="number" class="form-control" name="month" id="monthInput" placeholder="Nhập tháng" min="1" max="12">
+        </div>
+
+        <!-- Năm -->
+        <div class="col-2">
+          <label for="yearInput" class="form-label">Năm</label>
+          <input type="number" class="form-control" name="year" id="yearInput" placeholder="Nhập năm" min="1900" max="2100">
+        </div>
+         <div class="col-2 mt-4">
+
+            <button type="submit" class="btn btn-primary">Xác nhận</button>
+    
+    </div>
+      </div>
+   
+      <!-- Nút Submit (Dùng để kiểm tra giá trị) -->
+    </form>
+                <div class="card  d-flex justify-content-end align-items-end">
+        <div class="row col-3 d-flex justify-content-end align-items-end">  
+     
+</div>
+                    <table class="datatable table" id="myTableProduct">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="tb-col">STT</th>
+                                <th class="tb-col">Mã hàng</th>
+                                <th class="tb-col">Tên hàng</th>
+                                <th class="tb-col">BarCode</th>
+                                <th class="tb-col">Số Lượng Đã Nhập Xuất Kho</th>
+                        </thead>
+
+                        <tbody>
+                                {{#each topProductExport}}
+                            <tr>
+                                <td>{{add @index 1}}</td>
+                                <td>{{this.Product_ID}}</td>
+                                <td class="productimgname">
+                                    <a href="javascript:void(0);" class="product-img">
+                                        <img src="{{this.Image}}" alt="product">
+                                    </a>
+                                    <a href="javascript:void(0);">{{this.Name}}</a>
+                                </td>
+                                <td>{{this.Barcode}}</td>
+                                <td>{{this.TotalQuantity}}</td>
+                              
+                            </tr>
+                                {{/each}}
+                        </tbody>
+
+                    </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination" id="pagination">
+                             {{#if (gt page 1)}}
+                            <li class="page-item"><a class="page-link previous" href="{{url}}{{sub page 1}}">Previous</a></li>
+                            {{else}}
+                            <li class="page-item"><a class="page-link previous" href="#">Previous</a></li>
+
+                            {{/if}}
+                            {{#if (gt page 1)}}
+                                <li class="page-item"><a class="page-link" href="{{url}}{{sub page 1}}">{{sub page 1}}</a></li>
+                            {{/if}}
+                            <li class="page-item active"><a class="page-link" href="#" >{{page}}</a></li>
+                            <li class="page-item"><a class="page-link" href="{{url}}{{add page 1}}">{{add page 1}}</a></li>
+                            <li class="page-item"><a class="page-link next" href="{{url}}{{add page 1}}">Next</a></li>
+                        </ul>
+                        </nav>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>

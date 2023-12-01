@@ -1,0 +1,82 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Thông Tin Cá Nhân</h4>
+                        <h6>Thông tin cá nhân người dùng</h6>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="profile-set">
+                            <div class="profile-head">
+                            </div>
+                            <div class="profile-top">
+                                <div class="profile-content">
+                                    <div class="profile-contentimg">
+                                        <img src="{{employee.Image}}" alt="img" id="blah">
+                                        <div class="profileupload">
+                                            <input type="file" id="imgInp">
+                                            <a href="javascript:void(0);"><img src="/img/icons/edit-set.svg"
+                                                    alt="img"></a>
+                                        </div>
+                                    </div>
+                                    <div class="profile-contentname">
+                                        <h2>{{employee.Name}}</h2>
+                                        <h4>Cập Nhật Hình Ảnh </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Họ Và Tên</label>
+                <h5><p style="font-weight: bold;">{{employee.Name}}</p></h5>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <h5><p style="font-weight: bold;">{{employee.Email}}</p></h5>
+                                </div>
+                            </div>
+                       <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>BirthDay</label>
+                                    <h5><p style="font-weight: bold;">{{formatDate employee.BirthDay}}</p></h5>
+                                </div>
+                            </div>
+                      <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Salary</label>
+                                    <h5><p style="font-weight: bold;">{{employee.Salary}}</p></h5>
+                                </div>
+                            </div>
+                   <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Ngày Bắt Đầu Làm Việc</label>
+                                    <h5><p style="font-weight: bold;">{{formatDate employee.Start_date}}</p></h5>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <a href="javascript:void(0);" class="btn btn-submit change-avatar">Lưu</a>
+                                <a href="javascript:void(0);" class="btn btn-cancel">Thoát</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>

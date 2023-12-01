@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Search Input</title>
+</head>
+<body>
+
+  <div class="container mt-3">
+    <div class="form-group">
+      <label for="searchInput">Search:</label>
+      <input type="text" class="form-control" id="searchInput" placeholder="Type to search...">
+    </div>
+    <ul class="list-group" id="searchResults"></ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    const dataList = ["Apple", "Banana", "Cherry", "Date", "Grape", "Lemon", "Lime", "Orange", "Peach", "Pear"];
+
+    $('#searchInput').on('input', function () {
+      const searchTerm = $(this).val().toLowerCase();
+      displayResults(searchTerm);
+    });
+
+    function displayResults(searchTerm) {
+      const searchResults = $('#searchResults');
+      searchResults.empty();
+
+      const filteredList = dataList.filter(item => item.toLowerCase().includes(searchTerm));
+
+      filteredList.forEach(item => {
+        const listItem = $('<li class="list-group-item resultItem"></li>');
+        listItem.text(item);
+
+        listItem.on('click', function () {
+          $('#searchInput').val(item);
+          searchResults.empty();
+        });
+
+        searchResults.append(listItem);
+      });
+
+      if (filteredList.length > 0) {
+        searchResults.show();
+      } else {
+        searchResults.hide();
+      }
+    }
+
+    $(document).on('click', function (event) {
+      const searchResults = $('#searchResults');
+      if (!$(event.target).closest(searchResults).length && !$(event.target).is('#searchInput')) {
+        searchResults.empty().hide();
+      }
+    });
+  </script>
+
+</body>
+</html>

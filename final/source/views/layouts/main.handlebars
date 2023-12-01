@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+        integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Main Page</title>
+</head>
+
+<body>
+    <div class="main-wrapper">
+
+        <div class="header">
+
+            <div class="header-left active">
+                <a href="/" class="logo">
+                    <img src="/img/logo.png" alt="">
+                </a>
+            </div>
+
+            <ul class="nav user-menu">
+
+           
+
+                <li class="nav-item dropdown has-arrow main-drop">
+                    <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
+                        <span class="user-img"><img src="{{Image}}" alt="">
+                        </span>
+                    </a>
+                    <div class="dropdown-menu menu-drop-user">
+                        <div class="profilename">
+                            <div class="profileset">
+                                <span class="user-img"><img src="{{Image}}" alt="">
+                                </span>
+                                <div class="profilesets">
+                                    <h6>{{Name}}</h6>
+                                </div>
+                            </div>
+                            <hr class="m-0">
+                            <a class="dropdown-item" href="/user/profilePage"> <i class="me-2" data-feather="user"></i> Thông
+                                Tin Cá Nhân</a>
+                           
+                            <hr class="m-0">
+                            <a class="dropdown-item logout pb-0" href="/user/signout"><img
+                                    src="/img/icons/log-out.svg" class="me-2" alt="img">Đăng Xuất</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="sidebar">
+
+            <div class="flex-shrink-0 p-3 bg-white sidebar-menu" style="width: 260px;">
+
+                <ul>
+                    <li class="mb-1">
+                        <a href="/index" class="btn align-items-center rounded collapsed" aria-expanded="true">
+                            <strong>Trang Chính</strong>
+                        </a>
+                    </li>
+
+                    <li class="mb-1">
+                        <a class="btn align-items-center rounded collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#product-collapse" aria-expanded="false">
+                            <strong>Sản Phẩm</strong>
+                        </a>
+                        <div class="collapse" id="product-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+                                <li><a href="/product?page=1" class="link-dark rounded">Danh Sách Sản Phẩm</a></li>
+                               {{#if RoleAdmin}}
+                                    <li><a href="/product/add" class="link-dark rounded">Thêm Sản Phẩm</a></li>
+                                    <li><a href="/categories/" class="link-dark rounded">Loại Sản Phẩm</a></li>
+                                    <li><a href="/categories/addcategory" class="link-dark rounded">Thêm Loại Sản Phẩm</a></li>
+                                {{else}}
+                                {{/if}}
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="mb-1">
+                        <a class="btn align-items-center rounded collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#expense-collapse" aria-expanded="false">
+                            <strong>Nhập Xuất Kho</strong>
+                        </a>
+                        <div class="collapse" id="expense-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+                                <li><a href="/import/" class="link-dark rounded">Danh Sách Nhập Kho</a></li>
+                                <li><a href="/export/" class="link-dark rounded">Danh Sách Xuất Kho</a></li>
+                                <li><a href="/inventory" class="link-dark rounded">Quản Lý Kho</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="mb-1">
+                        <a class="btn align-items-center rounded collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#report-collapse" aria-expanded="false">
+                            <strong>Báo Cáo</strong>
+                        </a>
+                        <div class="collapse" id="report-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+                              
+                                <li><a href="/report/statusProduct" class="link-dark rounded">Báo Cáo Tình Trạng Sản Phẩm Trong Kho</a></li>
+                                <li><a href="/report/topImport" class="link-dark rounded">Báo Cáo Nhập Kho</a></li>
+                                <li><a href="/report/topExport" class="link-dark rounded">Báo Cáo Xuất Kho</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                                {{#if ../RoleAdmin}}
+
+                    <li class="mb-1">
+                        <a class="btn align-items-center rounded collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#users-collapse" aria-expanded="false">
+                            <strong>Người Dùng</strong>
+                        </a>
+                        <div class="collapse" id="users-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+                                <li><a href="/user/getEmployees" class="link-dark rounded">Danh Sách Người Dùng</a></li>
+                                <li><a href="/user/createUser" class="link-dark rounded">Thêm Người Dùng</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                                {{/if}}
+
+                 
+                </ul>
+            </div>
+
+        </div>
+        {{{body}}}
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://unpkg.com/feather-icons@4.29.0/dist/feather.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+{{!-- <script src="/js/script.js"></script> --}}
+<script src="/js/sidebars.js"></script>
+<script src="/js/createuser.js"></script>
+<script src="/js/edituser.js"></script>
+<script src="/js/listuser.js"></script>
+<script src="/js/profile.js"></script>
+<script src="/js/Category.js"></script>
+<script src="/js/Product.js"></script>
+<script src="/js/editProduct.js"></script>
+<script src="/js/warehouse.js"></script>
+<script src="/js/report.js"></script>
+
+</html>

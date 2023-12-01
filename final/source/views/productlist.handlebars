@@ -1,0 +1,103 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-wrapper">
+
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Danh Sách Sản Phẩm</h4>
+                        <h6>Danh sách sản phẩm</h6>
+                    </div>
+                    <div class="page-btn">
+                        <a href="/product/add" class="btn btn-added"><img src="/img/icons/plus.svg" alt="img"
+                                class="me-1">Thêm Sản Phẩm</a>
+                    </div>
+                </div>
+   
+                <div class="card  d-flex justify-content-end align-items-end">
+        <div class="row col-3 d-flex justify-content-end align-items-end">  
+               <form action="/product/search" method="get">
+                  <div class="input-group mb-3 ">
+        <input type="text" class="form-control " id="SearchProduct" name="search"  placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="btn-SearchProduct">Search</button>
+        </div>
+               </form>
+</div>
+                    <table class="datatable table" id="myTableProduct">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="tb-col">STT</th>
+                                <th class="tb-col">Mã hàng</th>
+                                <th class="tb-col">Tên hàng</th>
+                                <th class="tb-col">BarCode</th>
+                                <th class="tb-col">SKU</th>
+                                <th class="tb-col">Giá Nhập</th>
+                                <th class="tb-col">Số Lượng</th>
+                                <th class="tb-col">Tình Trạng</th>
+                                <th class="tb-col">Loại Sản phẩm</th>
+                                <th class="tb-col">hành Động</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                                {{#each products}}
+                            <tr data-idProduct="{{this.Product_ID}}">
+                                <td>{{add @index 1}}</td>
+                                <td>{{this.Product_ID}}</td>
+                                <td class="productimgname">
+                                    <a href="javascript:void(0);" class="product-img">
+                                        <img src="{{this.Image}}" alt="product">
+                                    </a>
+                                    <a href="javascript:void(0);">{{this.Name}}</a>
+                                </td>
+                                <td>{{this.Barcode}}</td>
+                                <td>{{this.SKU}}</td>
+                                <td>{{this.Cost_Price}}</td>
+                                <td>{{this.Quantity}}</td>
+                                <td>{{checkQuantity this.Quantity}}</td>
+                                <td>{{this.Category_Name}}</td>
+                                <td>
+                                    <a class="me-3" href="/product/details/{{this.Product_ID}}">
+                                        <img src="/img/icons/eye.svg" alt="img">
+                                    </a>
+                                    {{#if ../RoleAdmin}}
+
+                                    <a class="me-3" href="/product/editproduct/{{this.Product_ID}}">
+                                        <img src="/img/icons/edit.svg" alt="img">
+                                    </a>
+                                    <a class="confirm-text delete-product" id="{{this.Product_ID}}">
+                                        <img src="/img/icons/delete.svg" alt="img">
+                                    </a>
+                                    {{/if}}
+                                </td>
+                            </tr>
+                                {{/each}}
+
+                         
+
+                        </tbody>
+
+                    </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination" id="pagination">
+                            <li class="page-item"><a class="page-link previous" href="#">Previous</a></li>
+                            {{#if (gt page 1)}}
+                                <li class="page-item"><a class="page-link" href="{{url}}{{sub page 1}}">{{sub page 1}}</a></li>
+                            {{/if}}
+                            <li class="page-item active"><a class="page-link" href="#" >{{page}}</a></li>
+                            <li class="page-item"><a class="page-link" href="{{url}}{{add page 1}}">{{add page 1}}</a></li>
+                            <li class="page-item"><a class="page-link next" href="#">Next</a></li>
+                        </ul>
+                        </nav>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
